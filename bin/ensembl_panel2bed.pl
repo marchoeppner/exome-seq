@@ -22,7 +22,7 @@ perl ensembl_get_utr.pl
         standard output
 };
 
-my $species = "human";
+my $species = "homo_sapiens";
 my $output_file = undef;
 my $list = undef;
 my $assembly = "GRCh38";
@@ -77,7 +77,7 @@ foreach $line (<$fh>) {
 
 	foreach my $gene_name (@genes) {
 
-		print STDERR "Searching for $gene_name ...\n" ;
+		printf STDERR "Searching for $gene_name ...\n";
 
 		next if ($skip == 1);
 
@@ -86,6 +86,7 @@ foreach $line (<$fh>) {
 
 		next if (!$gene);
 
+		# We have a found a match, don't need to check the alternative names, if any
 		$skip = 1;
 
 		my $transcript = $gene->canonical_transcript;

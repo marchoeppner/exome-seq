@@ -4,6 +4,5 @@ LABEL authors="Marc Hoeppner" \
 
 COPY environment.yml /
 RUN conda env create -f /environment.yml && conda clean -a
-ENV PATH /opt/conda/envs/exome-seq-1.2/bin:$PATH
+ENV PATH /opt/conda/envs/exome-seq-2.1/bin:$PATH
 
-RUN apt-get -y update && apt-get -y install texlive texlive-latex-extra texlive-generic-extra texlive-xetex texlive-latex-recommended texlive-luatex
